@@ -2,6 +2,7 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $_path_ from "./routes/[...path].ts";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
@@ -10,10 +11,14 @@ import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $search_index from "./routes/search/index.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $LinkForm from "./islands/LinkForm.tsx";
+import * as $LinksList from "./islands/LinksList.tsx";
+import * as $store from "./islands/store.ts";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/[...path].ts": $_path_,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/api/joke.ts": $api_joke,
@@ -24,6 +29,9 @@ const manifest = {
   },
   islands: {
     "./islands/Counter.tsx": $Counter,
+    "./islands/LinkForm.tsx": $LinkForm,
+    "./islands/LinksList.tsx": $LinksList,
+    "./islands/store.ts": $store,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

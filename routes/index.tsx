@@ -1,24 +1,27 @@
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+import LinkForm from "../islands/LinkForm.tsx";
+import LinksList from "../islands/LinksList.tsx";
 
 export default function Home() {
-  const count = useSignal(3);
   return (
-    <div class="px-4 py-8 mx-auto bg-[#86efac]">
-      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-        <img
-          class="my-6"
-          src="/logo.svg"
-          width="128"
-          height="128"
-          alt="the Fresh logo: a sliced lemon dripping with juice"
-        />
-        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
-        <p class="my-4">
-          Try updating this message in the
-          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
+    <div className="flex flex-col items-center justify-center min-h-[100dvh] px-4 md:px-6 py-12 md:py-24">
+      <div className="max-w-xl w-full space-y-4 text-center">
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          Simple Link Shortener
+        </h1>
+        <p className="text-gray-500 md:text-xl dark:text-gray-400">
+          Shorten your long URLs with our easy-to-use link shortener.
         </p>
-        <Counter count={count} />
+        <LinkForm />
+        <LinksList />
+        <div className="flex items-center justify-center space-x-2">
+          <p className="text-gray-500 dark:text-gray-400">Your short link:</p>
+          <a
+            href="#"
+            className="font-medium text-gray-900 hover:underline dark:text-gray-50"
+          >
+            https://example.com/abc123
+          </a>
+        </div>
       </div>
     </div>
   );
